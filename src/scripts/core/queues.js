@@ -313,6 +313,9 @@ var queues = new function() {
                     if(aData.parameterMap && aData.parameterMap['customers'] !== undefined) {
                         $('td:eq(1)', nRow).html(aData.parameterMap['customers']);
                     }
+                    if(aData.parameterMap && aData.parameterMap['kioskData_fname'] !== undefined) {
+                        $('td:eq(1)', nRow).html(aData.parameterMap['kioskData_fname'] + " " + aData.parameterMap['kioskData_lname'] + "<div class='companyName'>" + aData.parameterMap['kioskData_cname'] + "</div>");
+                    }
                     if(aData.appointmentTime) {
                         $('td:eq(3)', nRow).html(util.formatHHMMSSIntoHHMMA(aData.appointmentTime.split("T")[1]));
                     }
