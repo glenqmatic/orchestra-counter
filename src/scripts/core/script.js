@@ -1731,7 +1731,14 @@ var servicePoint = new function () {
 		} else {
 			$("#linkedCustomerField").removeClass("qm-card-header__highlighted");
 		}
-
+        
+        // If kiosk data mapping company name found, add it to the customer name
+        if (sessvars.state.visit && sessvars.state.visit.parameterMap.kioskData_cname && sessvars.state.visit.parameterMap.kioskData_cname != "") {
+            var companyName = sessvars.state.visit.parameterMap.kioskData_cname;
+            var custNameHtml = $("#linkedCustomerField").html();
+            $("#linkedCustomerField").html(custNameHtml + "<div class='company-name'>" + companyName + "</div>");
+        }
+        
 		if (spPoolUpdateNeeded) {
 			servicePointPool.renderCounterPool();
 		} else {
