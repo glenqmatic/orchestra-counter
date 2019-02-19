@@ -51,7 +51,7 @@ If the application doesn't open in your chrome browser automatically, you can vi
 
 In the case you are developing with an Orchestra installed on a remote machine.
 
-Create a config.gulp.json file in the root of the project and make sure to add the remote ip,port and host details in the structure shown below.
+Create a gulp.config.json file in the root of the project and make sure to add the remote ip,port and host details in the structure shown below.
 
 ```
 {
