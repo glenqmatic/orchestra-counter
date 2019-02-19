@@ -56,6 +56,7 @@
 
     &__tab-text {
         pointer-events: none;
+        margin-right: rem(5px);
     }
 
     &__tab-panel {
@@ -73,6 +74,7 @@
     margin-left: rem($global-standard-margin / 2);
     pointer-events: none;
     color: $text-primary-color;
+    margin-top:rem(3px);
 
     @at-root [aria-selected='false'] & {
         color: $tab-disabled-color;
@@ -98,5 +100,26 @@
     &__text {
         font-size: rem(16px);
         line-height: rem(19px);
+        
+    }
+
+    .qm-no-waiting {
+        width:rem(16px);
+        height:rem(16px);
+        background:red;
+        border-radius:rem(16px);
+        display:inline-block;
+        vertical-align:middle;
+        margin-bottom:rem(3px);
+    }
+
+    .qm-waiting {
+        width:rem(16px);
+        height:rem(16px);
+        background: green;
+        border-radius:rem(16px);
+        display:inline-block;
+        vertical-align:middle;
+        margin-bottom:rem(3px);
     }
 }

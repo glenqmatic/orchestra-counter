@@ -8,10 +8,10 @@
                     aria-controls="myQueuesPanel"
                     id="myQueuesTab">
                     <span class="qm-tabs__tab-text"></span>
-                    <div class="qm-tab-information">
+                    <!--<div class="qm-tab-information">
                         <i class="qm-tab-information__icon icon-customer-solid" aria-hidden="true"></i>
                         <span class="qm-tab-information__text"></span>
-                    </div>
+                    </div>-->
                     </button>
             <button class="qm-tabs__tab"
                     role="tab"
@@ -21,7 +21,7 @@
                     tabindex="-1">
                     <span class="qm-tabs__tab-text"></span>
                     <div class="qm-tab-information">
-                        <i class="qm-tab-information__icon icon-customer-solid" aria-hidden="true"></i>
+                        <!--<i class="qm-tab-information__icon icon-customer-solid" aria-hidden="true"></i>-->
                         <span class="qm-tab-information__text"></span>
                     </div>
             </button>

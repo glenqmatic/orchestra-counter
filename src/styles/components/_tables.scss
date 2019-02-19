@@ -94,6 +94,26 @@
         text-decoration: underline;
     }
 
+    .qm-no-waiting {
+        width:rem(16px);
+        height:rem(16px);
+        background:red;
+        border-radius:rem(16px);
+        display:inline-block;
+        vertical-align:middle;
+        margin-bottom:rem(3px);
+    }
+
+    .qm-waiting {
+        width:rem(16px);
+        height:rem(16px);
+        background: green;
+        border-radius:rem(16px);
+        display:inline-block;
+        vertical-align:middle;
+        margin-bottom:rem(3px);
+    }
+
     // DataTables overrides
     .sorting,
     .sorting_asc,
@@ -238,10 +258,11 @@
 #allQueuesPanel {
     tr {
         .qm-table__first-column {
-            width: 50% !important; 
+            width: 45% !important; 
         }
         .qm-table__middle-column {
-            width: 20% !important;
+            width: 25% !important;
+            font-size:rem(16px);
         }
         .qm-table__last-column {
             width: 30% !important;

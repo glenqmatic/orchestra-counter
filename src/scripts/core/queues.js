@@ -69,7 +69,7 @@ var queues = new function() {
         
                         $('td:eq(0) > a.qm-table__queue-name', nRow).click(function(e) {
                             e.preventDefault();
-                            queueClicked(queuesTable, nRow, aData);
+                            //queueClicked(queuesTable, nRow, aData);
                         });
                     } else {
                         $('td:eq(0)', nRow).addClass("qm-table__queue-name--disabled");
@@ -78,8 +78,10 @@ var queues = new function() {
                     
                     if(aData.customersWaiting === 0) {
                         $('td:eq(2)', nRow).html("--");
+                        $('td:eq(1)', nRow).html("<span class='qm-no-waiting'></span> Kein Wartender");
                     } else {
                         $('td:eq(2)', nRow).html(util.formatIntoMM(parseInt(aData.waitingTime)));
+                        $('td:eq(1)', nRow).html("<span class='qm-waiting'></span> Wartende vorhanden");
                     }
                     setSLAIcon(aData.serviceLevel, aData.waitingTime, nRow);
                     
@@ -95,7 +97,7 @@ var queues = new function() {
         
                         $('td:eq(0) > a.qm-table__queue-name', nRow).click(function(e) {
                             e.preventDefault();
-                            queueClicked(myQueuesTable, nRow, aData);
+                            //queueClicked(myQueuesTable, nRow, aData);
                         });
                     } else {
                         $('td:eq(0)', nRow).addClass("qm-table__queue-name--disabled");
@@ -103,8 +105,10 @@ var queues = new function() {
 
                     if(aData.customersWaiting === 0) {
                         $('td:eq(2)', nRow).html("--");
+                        $('td:eq(1)', nRow).html("<span class='qm-no-waiting'></span> Kein Wartender");
                     } else {
                         $('td:eq(2)', nRow).html(util.formatIntoMM(parseInt(aData.waitingTime)));
+                        $('td:eq(1)', nRow).html("<span class='qm-waiting'></span> Wartende vorhanden");
                     }
 
                     setSLAIcon(aData.serviceLevel, aData.waitingTime, nRow);
@@ -180,7 +184,11 @@ var queues = new function() {
     };
 
     var setNumberOfWaitingCustomers = function(selector, numberOfWaitingCustomers) {
-        $(selector).text(numberOfWaitingCustomers);
+        if(numberOfWaitingCustomers > 0){
+            $(selector).html("<span class='qm-waiting'></span> Wartende vorhanden");
+        }else{
+            $(selector).html("<span class='qm-no-waiting'></span> Kein Wartender");
+        }
     };
 
     var myQueuesFilterFn = function (queues) {
@@ -191,6 +199,7 @@ var queues = new function() {
     };
 
     var queueClicked = function(queueTableContainingRow, rowClicked, rowAData) {
+        debugger;
         if(servicePoint.hasValidSettings() && sessvars.state.servicePointState == servicePoint.servicePointState.OPEN &&
             !(servicePoint.isOutcomeOrDeliveredServiceNeeded() /*&& sessvars.forceMark && !hasMark()*/)) {
             sessvars.clickedQueueId = queueTableContainingRow.fnGetData(rowClicked).id; //ql queue id
